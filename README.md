@@ -1,90 +1,48 @@
+# Fine-Tuning LLaMA-2 7B with LoRA
 
-# Fine-Tuning LLMs with Ollama
+## 📌 About the Project
 
-This project demonstrates how to fine-tune Large Language Models (LLMs) in Python and use them seamlessly with **Ollama**.
-The notebook walks you step by step through the process of preparing your dataset, training the model, and running it locally with Ollama.
+This project shows how to fine-tune **LLaMA-2 7B Chat** on your own dataset using **LoRA** (Low-Rank Adaptation). By combining LoRA with **4-bit quantization**, the training runs smoothly even on a single **Google Colab T4 GPU**.
 
-## 🚀 Features
-
-* Fine-tune an LLM on your **custom dataset**
-* Use Python scripts & Jupyter notebooks for training
-* Deploy and run your fine-tuned model with **Ollama**
-* Easy-to-follow, beginner-friendly workflow
-
-## 📂 Project Structure
-
-```
-├── finetuning_personal_dataset.ipynb   # Jupyter notebook with step-by-step code
-├── dataset/                            # Your training dataset (JSONL, CSV, etc.)
-├── models/                             # Trained models (after fine-tuning)
-├── requirements.txt                    # Python dependencies
-└── README.md                           # Project documentation
-```
-
-## 🛠️ Installation
-
-Clone the repository and set up the environment:
-
-```bash
-git clone https://github.com/your-username/finetuning-ollama.git
-cd finetuning-ollama
-```
-
-Create a virtual environment and install dependencies:
-
-```bash
-python -m venv venv
-source venv/bin/activate   # On Linux/Mac
-venv\Scripts\activate      # On Windows
-
-pip install -r requirements.txt
-```
-
-Make sure you have [Ollama](https://ollama.ai) installed on your system.
-
-## 📊 Usage
-
-1. Open the Jupyter notebook:
-
-   ```bash
-   jupyter notebook finetuning_personal_dataset.ipynb
-   ```
-
-2. Follow the notebook cells step by step to:
-
-   * Load and preprocess your dataset
-   * Train/fine-tune your model
-   * Export and run it with Ollama
-
-3. Run your fine-tuned model with Ollama:
-
-   ```bash
-   ollama run your-model-name
-   ```
-
-## 📌 Example
-
-Here’s a quick example after fine-tuning:
-
-```bash
-> ollama run your-model-name
-User: What is this project about?
-Model: This project is a hands-on guide to fine-tuning LLMs and running them locally with Ollama.
-```
-
-## 📚 Requirements
-
-* Python 3.8+
-* Jupyter Notebook
-* Ollama installed locally
-* Libraries listed in `requirements.txt`
-
-## 🤝 Contributing
-
-Contributions are welcome! If you’d like to improve the notebook, fix bugs, or add new features, feel free to fork the repo and submit a pull request.
-
-## 📜 License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+The goal is to make large language models easier to adapt for **specific tasks or domains** without needing huge hardware.
 
 ---
+
+## 🔑 How It Works
+
+1. **Set up the environment** with libraries like `transformers`, `peft`, `datasets`, and `bitsandbytes`.
+2. **Load the base model** (LLaMA-2 7B Chat) and apply 4-bit quantization to save memory.
+3. **Prepare the dataset** (text, CSV, PDF, etc.) and convert it into a training-ready format.
+4. **Fine-tune with LoRA**, updating only a small number of model parameters.
+5. **Train & test** the model with your data.
+6. **Run inference** and use the model locally or with Ollama.
+
+---
+
+## ⚙️ Tech Used
+
+* **Model**: LLaMA-2 7B Chat
+* **Method**: LoRA fine-tuning (parameter-efficient)
+* **Quantization**: 4-bit (`bitsandbytes`)
+* **Libraries**: Transformers, PEFT, Accelerate, Datasets
+* **Hardware**: Google Colab T4 GPU
+
+---
+
+## 📊 Why It’s Useful
+
+* Works on low-resource hardware
+* Adapts a general model to **custom domains**
+* Much faster and lighter than full fine-tuning
+
+---
+
+## 📌 Future Ideas
+
+* Try different LoRA settings for better results
+* Add metrics to measure performance
+* Deploy the model with an API for real-world use
+
+---
+
+That’s it — simple
